@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "ongoingSchemes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schemeId": { "type": ["string", "null"] },
+          "refGId": { "type": ["string", "null"] },
+          "schemeStartDate": { "type": ["string", "null"], "format": "date-time" },
+          "totalAmountInvested": { "type": "number" },
+          "returnEarned": { "type": "number" },
+          "schemeDuration": { "type": "integer" },
+          "monthsOfInstallmentPaid": { "type": "integer" },
+          "schemeStatus": { "type": "string" },
+          "installmentAmount": { "type": ["string", "null"] },
+          "overdue": { "type": ["string", "null"] },
+          "upcomingDueDate": { "type": ["string", "null"] },
+          "nextDueInDays": { "type": "integer" },
+          "redemptionDate": { "type": ["string", "null"] },
+          "redeemPercent": { "type": "number" },
+          "schemeTransactionType": { "type": "string" },
+          "maturityRemainingDays": { "type": ["string", "null"] },
+          "installmentPaid": { "type": ["string", "null"] },
+          "latestTransactionInstalments": { "type": ["string", "null"] },
+          "lastPaymentStatus": {
+            "type": ["object", "null"],
+            "properties": {
+              "installmentNumber": {
+                "type": "array",
+                "items": { "type": "integer" }
+              },
+              "paymentStatus": { "type": "string" }
+            },
+            "required": ["installmentNumber", "paymentStatus"]
+          },
+          "userState": { "type": ["string", "null"] },
+          "panVerificationNeeded": { "type": "boolean" }
+        },
+        "required": [
+          "schemeId", "refGId", "schemeStartDate", "totalAmountInvested",
+          "returnEarned", "schemeDuration", "monthsOfInstallmentPaid",
+          "schemeStatus", "installmentAmount", "overdue", "upcomingDueDate",
+          "nextDueInDays", "redemptionDate", "redeemPercent",
+          "schemeTransactionType", "maturityRemainingDays", "installmentPaid",
+          "latestTransactionInstalments", "lastPaymentStatus", "userState",
+          "panVerificationNeeded"
+        ]
+      }
+    },
+    "redeemedSchemes": {
+      "type": "array",
+      "items": {}  // Empty array
+    },
+    "continueEnrolment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schemeId": { "type": ["string", "null"] },
+          "refGId": { "type": ["string", "null"] },
+          "schemeStartDate": { "type": ["string", "null"] },
+          "totalAmountInvested": { "type": "number" },
+          "returnEarned": { "type": "number" },
+          "schemeDuration": { "type": "integer" },
+          "monthsOfInstallmentPaid": { "type": "integer" },
+          "schemeStatus": { "type": "string" },
+          "installmentAmount": { "type": ["string", "null"] },
+          "overdue": { "type": ["string", "null"] },
+          "upcomingDueDate": { "type": ["string", "null"] },
+          "nextDueInDays": { "type": "integer" },
+          "redemptionDate": { "type": ["string", "null"] },
+          "redeemPercent": { "type": "number" },
+          "schemeTransactionType": { "type": "string" },
+          "maturityRemainingDays": { "type": ["string", "null"] },
+          "installmentPaid": { "type": ["string", "null"] },
+          "latestTransactionInstalments": { "type": ["string", "null"] },
+          "lastPaymentStatus": { "type": ["string", "null"] },
+          "userState": { "type": ["string", "null"] },
+          "panVerificationNeeded": { "type": "boolean" }
+        },
+        "required": [
+          "schemeId", "refGId", "schemeStartDate", "totalAmountInvested",
+          "returnEarned", "schemeDuration", "monthsOfInstallmentPaid",
+          "schemeStatus", "installmentAmount", "overdue", "upcomingDueDate",
+          "nextDueInDays", "redemptionDate", "redeemPercent",
+          "schemeTransactionType", "maturityRemainingDays", "installmentPaid",
+          "latestTransactionInstalments", "lastPaymentStatus", "userState",
+          "panVerificationNeeded"
+        ]
+      }
+    }
+  },
+  "required": ["ongoingSchemes", "redeemedSchemes", "continueEnrolment"]
+}

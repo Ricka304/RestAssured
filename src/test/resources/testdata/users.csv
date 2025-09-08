@@ -1,0 +1,6 @@
+TestCase,Username,Password,FirstName,LastName,Phone,Email,Amount,Expected
+TC_001,john.doe@example.com,Password123,John,Doe,9876543210,john.doe@example.com,1000.50,Success
+TC_002,jane.smith@example.com,SecurePass456,Jane,Smith,9876543211,jane.smith@example.com,2500.75,Success
+TC_003,invalid.user@example.com,WeakPass,Invalid,User,9876543212,invalid.user@example.com,0.00,Failure
+TC_004,test.user@example.com,TestPass789,Test,User,9876543213,test.user@example.com,5000.00,Success
+TC_005,admin@example.com,AdminPass123,Admin,User,9876543214,admin@example.com,10000.00,Success

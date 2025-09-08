@@ -1,0 +1,38 @@
+{
+  "environments": {
+    "sit": {
+      "baseUrl": "https://gss-reliancejewels.snghostz0.de",
+      "database": {
+        "host": "localhost",
+        "port": 3306,
+        "name": "gss_sit",
+        "username": "test_user",
+        "password": "test_pass"
+      },
+      "timeouts": {
+        "connection": 30000,
+        "response": 60000
+      }
+    },
+    "uat": {
+      "baseUrl": "https://gss-uat.example.com",
+      "database": {
+        "host": "uat-db.example.com",
+        "port": 3306,
+        "name": "gss_uat",
+        "username": "uat_user",
+        "password": "uat_pass"
+      },
+      "timeouts": {
+        "connection": 30000,
+        "response": 60000
+      }
+    }
+  },
+  "cleanup": {
+    "enabled": true,
+    "tables": ["test_users", "test_transactions", "test_sessions"],
+    "files": ["temp_*.json", "test_*.csv"],
+    "directories": ["/tmp/test_data"]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "endpoints": {
+    "login": {
+      "url": "/user/authentication/v1.0/login/otp",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer {token}"
+      },
+      "expectedStatus": 200
+    },
+    "fetchSchemes": {
+      "url": "/gssEnroll/fetchSchemes/GSS",
+      "method": "GET",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "expectedStatus": 200
+    },
+    "userProfile": {
+      "url": "/user/profile",
+      "method": "GET",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer {token}"
+      },
+      "expectedStatus": 200
+    }
+  },
+  "testData": {
+    "validUser": {
+      "mobile": "9160037765",
+      "country_code": "91",
+      "otp": "5401"
+    },
+    "invalidUser": {
+      "mobile": "0000000000",
+      "country_code": "91",
+      "otp": "0000"
+    }
+  }
+}

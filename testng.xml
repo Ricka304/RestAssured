@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="RestAssuredTestSuite" verbose="1" parallel="methods" thread-count="3" data-provider-thread-count="2">
+
+    <!-- Global Listeners -->
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+    </listeners>
+
+    <!-- Global Parameters -->
+    <parameter name="retry.enabled" value="true"/>
+    <parameter name="retry.count" value="2"/>
+
+    <!-- API Tests with Parallel Execution -->
+    <test name="API Tests - Core Functionality" preserve-order="true">
+        <classes>
+            <class name="tests.LoginPageTests">
+                <methods>
+                    <include name="validateLogin"/>
+                </methods>
+            </class>
+            <class name="tests.HomePageTests">
+                <methods>
+                    <include name="validateFetchGSSCallFromHomePage"/>
+                    <include name="validateFetchGSSCall2FromHomePage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Data Utilities Demo - Sequential -->
+    <test name="Data Utilities Demo" parallel="false">
+        <classes>
+            <class name="tests.DataUtilitiesDemo">
+                <methods>
+                    <include name="demonstrateJsonUtils"/>
+                    <include name="demonstrateDataGenerator"/>
+                    <include name="demonstrateTestDataCleanup"/>
+                    <include name="demonstrateAdvancedJsonOperations"/>
+                    <include name="demonstrateTestDataReaderFeatures"/>
+                    <!-- Data-driven test will run with its own parallelism -->
+                    <include name="demonstrateDataDrivenTesting"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Parallel Execution & Retry Demo -->
+    <test name="Parallel Execution & Retry Demo" parallel="methods" thread-count="4">
+        <classes>
+            <class name="tests.ParallelRetryDemo">
+                <methods>
+                    <include name="testAlwaysPass"/>
+                    <include name="testSometimesFails"/>
+                    <include name="testNetworkIssues"/>
+                    <include name="testFastExecution"/>
+                    <include name="testSlowExecution"/>
+                    <include name="testThreadSafety"/>
+                    <include name="testPerformance"/>
+                    <!-- testWithAssertionError is included to show assertion failures are not retried -->
+                    <include name="testWithAssertionError"/>
+                    <!-- testAlwaysFails is disabled by default but can be enabled for retry exhaustion demo -->
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Performance Tests (if any) -->
+    <test name="Performance Tests" enabled="false" parallel="methods" thread-count="2">
+        <classes>
+            <!-- Add performance test classes here -->
+            <!-- <class name="performance.LoadTests"/> -->
+        </classes>
+    </test>
+
+</suite>
