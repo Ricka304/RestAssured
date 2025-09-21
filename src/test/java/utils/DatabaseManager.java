@@ -504,3 +504,4 @@ public class DatabaseManager {
         return new DatabaseConfig(url, "sa", "", "org.h2.Driver");
     }
 }
+

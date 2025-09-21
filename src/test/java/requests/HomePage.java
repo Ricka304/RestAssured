@@ -20,32 +20,14 @@ public class HomePage  {
         System.out.println("Company ID : " + ConfigManager.getCompanyID());
 
 
-       return  given()
-               .pathParam("param1",GSSEndpoints.EXTENSION_PATH_PARAM)
-               .pathParam("param2",GSSEndpoints.FETCH_SCHEMES)
-               .header("Content-Type", Constants.CONTENT_TYPE_JSON)
+        return  given()
+                .pathParam("param1",GSSEndpoints.EXTENSION_PATH_PARAM)
+                .pathParam("param2",GSSEndpoints.FETCH_SCHEMES)
+                .header("Content-Type", Constants.CONTENT_TYPE_JSON)
                 .header("UserId",ConfigManager.getUserId())
                 .when().get("{param1}{param2}");
 
     }
 
-/*
-    public void validatefetchSchemesContract() {
-        RestAssured.useRelaxedHTTPSValidation();
-        System.out.println("Calling URL: " + RestAssured.baseURI + GSSEndpoints.FETCH_SCHEMES);
-        System.out.println("Environment: " + ConfigManager.getEnvironment());
-        System.out.println("User Id : " + ConfigManager.getUserId());
-        System.out.println("Platform ID: " +ConfigManager.getPlatformID() );
-        System.out.println("Company ID : " + ConfigManager.getCompanyID());
 
-
-          given()
-                .pathParam("param1",GSSEndpoints.EXTENSION_PATH_PARAM)
-                .pathParam("param2",GSSEndpoints.FETCH_SCHEMES)
-                .header("Content-Type", Constants.CONTENT_TYPE_JSON)
-                .header("UserId",ConfigManager.getUserId())
-                .when().get("{param1}{param2}").then().assertThat()
-                 .body(matchesJsonSchemaInClasspath("jsonSchemas/fetchSchemes.json"));
-
-    }*/
 }
