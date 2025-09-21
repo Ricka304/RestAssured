@@ -52,7 +52,7 @@
     },
     "redeemedSchemes": {
       "type": "array",
-      "items": {}  // Empty array
+      "items": {}
     },
     "continueEnrolment": {
       "type": "array",

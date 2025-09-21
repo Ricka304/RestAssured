@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="RestAssuredTestSuite" verbose="1" >
+
+    <!-- Global Listeners -->
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+        <listener class-name="listeners.ExtentTestNGListener"/>
+
+    </listeners>
+    <test name="Login to Application">
+        <classes>
+        <class name="tests.functional.LoginPageTests">
+            <methods>
+                <include name="validateLogin"/>
+            </methods>
+        </class>
+        </classes>
+    </test>
+    <test name="Contract Testing">
+
+    <groups>
+        <run>
+            <include name="contracts"/>
+        </run>
+    </groups>
+
+    <packages>
+        <package name="tests.contract"/>
+    </packages>
+</test>
+
+</suite>

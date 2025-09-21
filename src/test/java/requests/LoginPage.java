@@ -22,11 +22,11 @@ private String requestID;
         RestAssured.useRelaxedHTTPSValidation();
         System.out.println("Calling URL: " + RestAssured.baseURI + GSSEndpoints.PLATFORM_PATH_PARAM+"/user/authentication/v1.0/login/otp?platform="+ConfigManager.getPlatformID());
         String requestBody = "{ \"mobile\": \"9160037765\", \"country_code\": \"91\" }";
-         Response res = RestAssured.given()
+         Response res = (Response) RestAssured.given()
                 .pathParam("param1", GSSEndpoints.PLATFORM_PATH_PARAM)
                 .pathParam("param2",ConfigManager.getPlatformID())
-                .cookie("x.test",true)
-                .header("Authorization","Bearer NjRkOWY4OWI1NDMxMzdiNmNmZmNlNjA3OmlTWlFpSHNhaw==")
+                 .cookie("x.test",true)
+                .header("Authorization",ConfigManager.getAuthToken())
                  .header("Content-Type", Constants.CONTENT_TYPE_JSON)
                 .when()
                  .body("{\"mobile\":\"9160037765\",\"country_code\":\"91\"}")
@@ -47,7 +47,7 @@ String body= "{\"request_id\":\""+request_id+"\",\"otp\":\"5401\"}";
         String cookie=  RestAssured.given()
                  .pathParam("param1",GSSEndpoints.PLATFORM_PATH_PARAM)
                .pathParam("param2",ConfigManager.getPlatformID())
-                 .header("Authorization","Bearer NjRkOWY4OWI1NDMxMzdiNmNmZmNlNjA3OmlTWlFpSHNhaw==")
+                 .header("Authorization",ConfigManager.getAuthToken())
               .header("Content-Type", Constants.CONTENT_TYPE_JSON)
                  .cookie("x.test",true)
                  .when()

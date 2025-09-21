@@ -130,7 +130,7 @@ public class PojoDemo {
                 ExtentTestManager.logFail("Serialization/deserialization failed - objects not equal");
             }
             
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             ExtentTestManager.logFail("JSON processing failed: " + e.getMessage());
             throw new RuntimeException(e);
         }
